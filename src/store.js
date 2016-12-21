@@ -6,6 +6,8 @@ const createStore = (initialValue = 0) => redux.createStore(counter, initialValu
 // Reducer is passed state and action and returns the new state
 function counter (state, action) {
   switch (action.type) {
+    case 'MULTIPLY':
+      return state * action.multiplier;
     case 'INCREMENT':
       return state + 1;
     case 'DECREMENT':
@@ -30,8 +32,12 @@ function double () {
   return { type: 'DOUBLE' };
 }
 
+function multiply (multiplier) {
+  return { type: 'MULTIPLY', multiplier };
+}
+
 // Export store and it's related actions - using object literal property assignment
 module.exports = {
   createStore,
-  actions: { increment, decrement, double }
+  actions: { increment, decrement, double, multiply }
 };
