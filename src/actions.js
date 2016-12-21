@@ -28,6 +28,7 @@ module.exports = {
   ADD_ITEM,
   TOGGLE_ITEM,
   SET_VISIBILITY_FILTER,
+  REMOVE_ITEM,
   visibilityFilters,
 
   addItem,
