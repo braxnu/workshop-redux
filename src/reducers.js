@@ -8,6 +8,7 @@ const {
   REMOVE_ITEM,
   RECEIVE_ITEM,
   SET_VISIBILITY_FILTER,
+  REQUEST_ITEM,
   visibilityFilters
 } = require('./actions');
 
@@ -39,5 +40,16 @@ function visibilityFilter (state = visibilityFilters.SHOW_ALL, action) {
   }
 }
 
+function isLoading (state = false, action) {
+  switch (action.type) {
+    case REQUEST_ITEM:
+      return true;
+    case RECEIVE_ITEM:
+      return false;
+    default:
+      return state;
+  }
+}
+
 // Export a reducer function that combines the above reducers
-module.exports = redux.combineReducers({ items, visibilityFilter });
+module.exports = redux.combineReducers({ items, visibilityFilter, isLoading });
